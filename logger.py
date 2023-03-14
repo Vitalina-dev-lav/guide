@@ -44,3 +44,29 @@ def filter_data(filter_string):
                 is_found = True
     if not is_found:
         print("Таких записей не найденно! ")
+
+def delete_contact(el):
+    with open(file_name, 'r', encoding='utf-8') as file:
+        lines = list.readlines()
+        with open (file_name, 'r', encoding='utf-8') as file:
+            for line in lines:
+                if el not in line:
+                    list.write(line)
+                    print("Успешно удалено: ")
+    delete_contact()
+
+def replace_contact(el):
+    with open(file_name, 'r', encoding='utf-8') as file:
+        lines = list.readlines()
+        with open (file_name, 'w', encoding='utf-8') as file:
+            for line in lines:
+                if el not in line:
+                    line = line.split()
+                    for part in line:
+                        new_note = part.replace(part, input(f'Введите новую информацию вместо {part} => '))
+                        list.writelines(new_note + '')
+                        print('Готово!')
+                else:
+                    list.write(str(line))
+    replace_contact()
+
